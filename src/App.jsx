@@ -51,8 +51,15 @@ function App() {
       const templateID = 'template_4un5tko'
       const publicKey = '0FxvABJsMdGXZMd4R'
 
+      const templateParams = {
+        from_name: formData.nome,
+        from_email: formData.email,
+        phone: formData.telefone,
+        message: formData.mensagem,
+      };
+
       // Enviar email usando EmailJS
-      const result = await emailjs.send(serviceID, templateID, formData, publicKey)
+      const result = await emailjs.send(serviceID, templateID, templateParams, publicKey)
       
       if (result.text === 'OK') {
         alert('Mensagem enviada com sucesso! Em breve entraremos em contato.')
