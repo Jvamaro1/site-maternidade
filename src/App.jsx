@@ -746,7 +746,7 @@ function App() {
             </div>
           </div>
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 MaterniCare. Todos os direitos reservados.</p>
+            <p>&copy; 2025 MaterniCare. Todos os direitos reservados. Criado por João Victor Amaro de Lima!</p>
           </div>
         </div>
       </footer>
