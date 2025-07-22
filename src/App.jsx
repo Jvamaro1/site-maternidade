@@ -33,9 +33,9 @@ function App() {
 
     try {
       // Configurações do EmailJS - você precisará substituir pelos seus valores
-      const serviceID = 'YOUR_SERVICE_ID'
-      const templateID = 'YOUR_TEMPLATE_ID'
-      const publicKey = 'YOUR_PUBLIC_KEY'
+      const serviceID = 'service_vqger63'
+      const templateID = 'template_4un5tko'
+      const publicKey = '0FxvABJsMdGXZMd4R'
 
       // Enviar email usando EmailJS
       const result = await emailjs.sendForm(serviceID, templateID, e.target, publicKey)
