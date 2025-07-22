@@ -629,7 +629,7 @@ function App() {
                     id="nome"
                     name="from_name"
                     placeholder="Seu nome completo"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-gray-800"
                     value={formData.nome}
                     onChange={handleInputChange}
                     required
@@ -642,7 +642,7 @@ function App() {
                     id="email"
                     name="from_email"
                     placeholder="seu.email@exemplo.com"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-gray-800"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -655,7 +655,7 @@ function App() {
                     id="telefone"
                     name="phone"
                     placeholder="(DD) 99999-9999"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-gray-800"
                     value={formData.telefone}
                     onChange={handleInputChange}
                     required
@@ -668,7 +668,7 @@ function App() {
                     name="message"
                     placeholder="Descreva brevemente sua dúvida ou situação..."
                     rows="4"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-gray-800"
                     value={formData.mensagem}
                     onChange={handleInputChange}
                   />
