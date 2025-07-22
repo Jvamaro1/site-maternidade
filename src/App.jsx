@@ -281,7 +281,7 @@ function App() {
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li>• Análise de documentos</li>
-                  <li>• Cálculo do valor do benefício</li>
+
                   <li>• Requerimento junto ao INSS</li>
                   <li>• Acompanhamento do processo</li>
                 </ul>
@@ -321,7 +321,7 @@ function App() {
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li>• Análise de valores</li>
-                  <li>• Cálculo de diferenças</li>
+
                   <li>• Pedido de revisão</li>
                   <li>• Recuperação de valores</li>
                 </ul>
