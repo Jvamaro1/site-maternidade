@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
 import { Heart, Baby, Shield, CheckCircle, Phone, Mail, MapPin, Users, Clock, Award } from 'lucide-react'
-import { ContactForm } from './components/ContactForm.jsx'
 import { FAQ } from './components/FAQ.jsx'
 import { Calculator } from './components/Calculator.jsx'
 import './App.css'
@@ -583,7 +582,53 @@ function App() {
                 </div>
               </div>
             </div>
-            <ContactForm />
+            <div className="w-full max-w-md mx-auto bg-white rounded-2xl shadow-xl p-6">
+              <h3 className="text-2xl font-bold text-gray-800 text-center mb-6">Envie Sua Mensagem</h3>
+              <form className="space-y-4">
+                <div>
+                  <label htmlFor="nome" className="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
+                  <input
+                    type="text"
+                    id="nome"
+                    placeholder="Seu nome completo"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">E-mail *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="seu.email@exemplo.com"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="telefone" className="block text-sm font-medium text-gray-700 mb-1">Telefone (WhatsApp) *</label>
+                  <input
+                    type="tel"
+                    id="telefone"
+                    placeholder="(DD) 99999-9999"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="mensagem" className="block text-sm font-medium text-gray-700 mb-1">Mensagem (Opcional)</label>
+                  <textarea
+                    id="mensagem"
+                    placeholder="Descreva brevemente sua dúvida ou situação..."
+                    rows="4"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  />
+                </div>
+                <button type="submit" className="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 text-lg rounded-lg transition-colors">
+                  Enviar Mensagem
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
