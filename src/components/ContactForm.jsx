@@ -9,7 +9,6 @@ export function ContactForm() {
     nome: '',
     email: '',
     telefone: '',
-    situacao: '',
     mensagem: ''
   })
 
@@ -30,7 +29,6 @@ export function ContactForm() {
       nome: '',
       email: '',
       telefone: '',
-      situacao: '',
       mensagem: ''
     })
   }
@@ -72,24 +70,6 @@ export function ContactForm() {
             onChange={handleInputChange}
             required
           />
-        </div>
-        <div>
-          <Label htmlFor="situacao">Situação Atual *</Label>
-          <select
-            id="situacao"
-            value={formData.situacao}
-            onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-            required
-          >
-            <option value="">Selecione sua situação</option>
-            <option value="clt">Empregada CLT</option>
-            <option value="mei">MEI</option>
-            <option value="autonoma">Autônoma</option>
-            <option value="desempregada">Desempregada</option>
-            <option value="domestica">Empregada Doméstica</option>
-            <option value="outra">Outra</option>
-          </select>
         </div>
         <div>
           <Label htmlFor="mensagem">Mensagem (Opcional)</Label>

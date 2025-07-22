@@ -25,6 +25,14 @@ function App() {
     setActiveSection(sectionId)
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // Lógica para enviar os dados do formulário
+    alert('Mensagem enviada com sucesso! Em breve entraremos em contato.')
+    // Resetar o formulário, se necessário
+    e.target.reset()
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-blue-50">
       {/* Header */}
@@ -584,7 +592,7 @@ function App() {
             </div>
             <div className="w-full max-w-md mx-auto bg-white rounded-2xl shadow-xl p-6">
               <h3 className="text-2xl font-bold text-gray-800 text-center mb-6">Envie Sua Mensagem</h3>
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="nome" className="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
                   <input
@@ -701,4 +709,5 @@ function App() {
 }
 
 export default App
+
 
