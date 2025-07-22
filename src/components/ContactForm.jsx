@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Input } from '@/components/ui/input.jsx'
 import { Label } from '@/components/ui/label.jsx'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select.jsx'
 import { Textarea } from '@/components/ui/textarea.jsx'
 import { CheckCircle, AlertCircle } from 'lucide-react'
 
@@ -108,18 +107,20 @@ export function ContactForm() {
             <Label htmlFor="situacao" className="text-sm font-medium text-gray-700">
               Situação Atual *
             </Label>
-            <Select value={formData.situacao} onValueChange={(value) => handleInputChange('situacao', value)}>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Selecione sua situação" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="clt">Empregada CLT</SelectItem>
-                <SelectItem value="mei">MEI</SelectItem>
-                <SelectItem value="autonoma">Autônoma</SelectItem>
-                <SelectItem value="desempregada">Desempregada</SelectItem>
-                <SelectItem value="domestica">Empregada Doméstica</SelectItem>
-              </SelectContent>
-            </Select>
+            <select
+              id="situacao"
+              value={formData.situacao}
+              onChange={(e) => handleInputChange('situacao', e.target.value)}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+              required
+            >
+              <option value="">Selecione sua situação</option>
+              <option value="clt">Empregada CLT</option>
+              <option value="mei">MEI</option>
+              <option value="autonoma">Autônoma</option>
+              <option value="desempregada">Desempregada</option>
+              <option value="domestica">Empregada Doméstica</option>
+            </select>
           </div>
 
           <div className="space-y-2">
