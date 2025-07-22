@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge.jsx'
 import { Heart, Baby, Shield, CheckCircle, Phone, Mail, MapPin, Users, Clock, Award } from 'lucide-react'
 import { FAQ } from './components/FAQ.jsx'
-import { Calculator } from './components/Calculator.jsx'
+
 import './App.css'
 
 // Importando as imagens
@@ -61,12 +61,6 @@ function App() {
                 className="text-gray-600 hover:text-pink-500 transition-colors"
               >
                 Serviços
-              </button>
-              <button 
-                onClick={() => scrollToSection('calculadora')}
-                className="text-gray-600 hover:text-pink-500 transition-colors"
-              >
-                Calculadora
               </button>
               <button 
                 onClick={() => scrollToSection('faq')}
@@ -336,9 +330,6 @@ function App() {
           </div>
         </div>
       </section>
-
-      {/* Calculadora */}
-      <Calculator />
 
       {/* Quem Tem Direito */}
       <section id="direitos" className="py-20 bg-gradient-to-r from-blue-50 to-pink-50">
@@ -669,12 +660,6 @@ function App() {
                   className="block text-gray-400 hover:text-white transition-colors"
                 >
                   Serviços
-                </button>
-                <button 
-                  onClick={() => scrollToSection('calculadora')}
-                  className="block text-gray-400 hover:text-white transition-colors"
-                >
-                  Calculadora
                 </button>
                 <button 
                   onClick={() => scrollToSection('faq')}
