@@ -18,6 +18,20 @@ import mulherTrabalhando from './assets/images/mulher-trabalhando.jpg'
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formData, setFormData] = useState({
+    nome: '',
+    email: '',
+    telefone: '',
+    mensagem: ''
+  })
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target
+    setFormData(prevData => ({
+      ...prevData,
+      [id]: value
+    }))
+  }
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -38,11 +52,16 @@ function App() {
       const publicKey = '0FxvABJsMdGXZMd4R'
 
       // Enviar email usando EmailJS
-      const result = await emailjs.sendForm(serviceID, templateID, e.target, publicKey)
+      const result = await emailjs.send(serviceID, templateID, formData, publicKey)
       
       if (result.text === 'OK') {
         alert('Mensagem enviada com sucesso! Em breve entraremos em contato.')
-        e.target.reset()
+        setFormData({
+          nome: '',
+          email: '',
+          telefone: '',
+          mensagem: ''
+        })
       }
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error)
@@ -611,6 +630,8 @@ function App() {
                     name="from_name"
                     placeholder="Seu nome completo"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    value={formData.nome}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
@@ -622,6 +643,8 @@ function App() {
                     name="from_email"
                     placeholder="seu.email@exemplo.com"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
@@ -633,6 +656,8 @@ function App() {
                     name="phone"
                     placeholder="(DD) 99999-9999"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    value={formData.telefone}
+                    onChange={handleInputChange}
                     required
                   />
                 </div>
@@ -644,6 +669,8 @@ function App() {
                     placeholder="Descreva brevemente sua dúvida ou situação..."
                     rows="4"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    value={formData.mensagem}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <button 
