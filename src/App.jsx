@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge.jsx'
 import { Heart, Baby, Shield, CheckCircle, Phone, Mail, MapPin, Users, Clock, Award } from 'lucide-react'
 import { FAQ } from './components/FAQ.jsx'
+import emailjs from '@emailjs/browser'
 
 import './App.css'
 
@@ -16,6 +17,7 @@ import mulherTrabalhando from './assets/images/mulher-trabalhando.jpg'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -25,12 +27,29 @@ function App() {
     setActiveSection(sectionId)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Lógica para enviar os dados do formulário
-    alert('Mensagem enviada com sucesso! Em breve entraremos em contato.')
-    // Resetar o formulário, se necessário
-    e.target.reset()
+    setIsSubmitting(true)
+
+    try {
+      // Configurações do EmailJS - você precisará substituir pelos seus valores
+      const serviceID = 'YOUR_SERVICE_ID'
+      const templateID = 'YOUR_TEMPLATE_ID'
+      const publicKey = 'YOUR_PUBLIC_KEY'
+
+      // Enviar email usando EmailJS
+      const result = await emailjs.sendForm(serviceID, templateID, e.target, publicKey)
+      
+      if (result.text === 'OK') {
+        alert('Mensagem enviada com sucesso! Em breve entraremos em contato.')
+        e.target.reset()
+      }
+    } catch (error) {
+      console.error('Erro ao enviar mensagem:', error)
+      alert('Erro ao enviar mensagem. Tente novamente ou entre em contato pelo telefone.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -589,6 +608,7 @@ function App() {
                   <input
                     type="text"
                     id="nome"
+                    name="from_name"
                     placeholder="Seu nome completo"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                     required
@@ -599,6 +619,7 @@ function App() {
                   <input
                     type="email"
                     id="email"
+                    name="from_email"
                     placeholder="seu.email@exemplo.com"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                     required
@@ -609,6 +630,7 @@ function App() {
                   <input
                     type="tel"
                     id="telefone"
+                    name="phone"
                     placeholder="(DD) 99999-9999"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                     required
@@ -618,13 +640,18 @@ function App() {
                   <label htmlFor="mensagem" className="block text-sm font-medium text-gray-700 mb-1">Mensagem (Opcional)</label>
                   <textarea
                     id="mensagem"
+                    name="message"
                     placeholder="Descreva brevemente sua dúvida ou situação..."
                     rows="4"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                   />
                 </div>
-                <button type="submit" className="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 text-lg rounded-lg transition-colors">
-                  Enviar Mensagem
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full bg-pink-500 hover:bg-pink-600 disabled:bg-pink-300 text-white py-3 text-lg rounded-lg transition-colors"
+                >
+                  {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
                 </button>
               </form>
             </div>
